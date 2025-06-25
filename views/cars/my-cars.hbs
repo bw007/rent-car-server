@@ -1,1 +1,87 @@
-<h1>Test</h1>
+<style>
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: #f8f9fa;
+  }
+  .custom-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: none;
+    transition: box-shadow 0.18s;
+  }
+  .custom-card:hover {
+    box-shadow: 0 4px 16px rgba(0,123,255,0.08);
+  }
+  .custom-card-img {
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    background: #f3f3f3;
+  }
+  .custom-form-section {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .custom-btn {
+    background: #222;
+    color: #fff;
+    border-radius: 6px;
+    transition: background 0.18s;
+  }
+  .custom-btn:hover {
+    background: #007bff;
+    color: #fff;
+  }
+</style>
+
+<div class="container py-4" style="max-width: 700px;">
+  <div class="custom-form-section mb-4">
+    <h2 class="h5 fw-semibold mb-3">Add New Car</h2>
+    <form action="/car/add" method="post" enctype="application/x-www-form-urlencoded">
+      <div class="mb-3">
+        <label for="name" class="form-label">Car Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="desc" class="form-label">Description</label>
+        <textarea class="form-control" id="desc" name="desc" rows="3" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="imageUrl" class="form-label">Image URL</label>
+        <input type="text" class="form-control" id="imageUrl" name="imageUrl" required>
+      </div>
+      <button type="submit" class="btn custom-btn px-4">Add Car</button>
+    </form>
+  </div>
+
+  <div>
+    <h2 class="h5 fw-semibold mb-3">{{title}}</h2>
+    <div class="row g-3">
+      {{#if cars}}
+        {{#each cars}}
+          <div class="col-12">
+            <div class="card custom-card h-100 shadow-sm border-0" style="border-radius: 12px; overflow: hidden;">
+              
+              <div class="card-body" style="padding: 1.25rem;">
+                <h3 class="card-title h6 fw-semibold mb-2" style="margin-bottom: 0.5rem;">{{name}}</h3>
+                <p class="card-text small text-muted mb-0" style="min-height: 2.5em;">{{desc}}</p>
+              </div>
+              <img src="{{this.imageUrl}}" alt="{{this.name}}" />
+              <div class="card-footer">
+                <a href="/car/{{id}}" type="button" class="btn btn-success">Open</a>
+                <a href="/car/{{id}}" type="button" class="btn btn-primary">Update</a>
+                <a href="/car/{{id}}" type="button" class="btn btn-danger">Delete</a> 
+              </div>
+            </div>
+          </div>
+              
+        {{/each}}
+      {{else}}
+        <h1>No cars...</h1>
+      {{/if}}
+    </div>
+  </div>
+</div>

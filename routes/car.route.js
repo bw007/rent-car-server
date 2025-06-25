@@ -1,8 +1,10 @@
 const { Router } = require('express');
-const { getAllCars } = require('../controllers/car.controller');
+const { getAllCars, addNewCar, getCarById } = require('../controllers/car.controller');
 
 const router = Router();
 
 router.get('/', getAllCars);
+router.post('/add', addNewCar);
+router.get('/:id', getCarById);
 
 module.exports = router;

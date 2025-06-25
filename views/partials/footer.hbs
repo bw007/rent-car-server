@@ -1,0 +1,14 @@
+<footer style="background: #222; color: #fff; padding: 1rem 2rem; text-align: center; width: 100%;">
+  <div>
+    &copy; <span id="footer-year">{{year}}</span> RentCar. All rights reserved.
+  </div>
+</footer>
+<script>
+  // Set current year dynamically if not set from backend
+  (function() {
+    var yearSpan = document.getElementById('footer-year');
+    if (!yearSpan.textContent.trim() || isNaN(Number(yearSpan.textContent.trim()))) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  })();
+</script>

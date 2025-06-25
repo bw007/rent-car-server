@@ -1,0 +1,39 @@
+<style>
+  .car-card {
+    max-width: 500px;
+    margin: 2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background: #fff;
+    overflow: hidden;
+  }
+  .car-card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #f3f3f3;
+  }
+  .car-card-body {
+    padding: 1.5rem;
+  }
+  .car-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .car-card-desc {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+</style>
+
+<div class="container py-5">
+  <div class="car-card shadow">
+    <img src="{{cars.[0].imageUrl}}" alt="{{cars.[0].name}}" class="car-card-img">
+    <div class="car-card-body">
+      <div class="car-card-title">{{cars.[0].name}}</div>
+      <p class="car-card-desc">{{cars.[0].desc}}</p>
+    </div>
+  </div>
+</div>

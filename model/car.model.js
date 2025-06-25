@@ -10,6 +10,10 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING(20),
         allowNull: false,
       },
+      desc: {
+        type: Sequelize.STRING(80),
+        allowNull: false,
+      },
       imageUrl: {
         type: Sequelize.STRING(1000),
         allowNull: true,
